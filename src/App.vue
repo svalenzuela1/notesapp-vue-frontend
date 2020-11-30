@@ -3,7 +3,8 @@
     <div id="nav">
     </div>
     <Header v-bind:URL="URL"/>
-    <router-view/>
+<!-- router creates the event not the header -->
+    <router-view @loggedIn="login($event)"/>
     <Footer/>
   </div>
 </template>
@@ -23,9 +24,17 @@ export default {
       loggedIn: false,
       token: "",
       URL: 'http://localhost:3000'
-
+    }
+  },
+  methods: {
+    login: function(event){
+      this.loggedIn = true
+      this.token = event
+      //suppose to switch pages
+      this.$router.push('/')
     }
   }
+
 }
 </script>
 

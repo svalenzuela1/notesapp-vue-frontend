@@ -51,7 +51,11 @@ export default {
         })
       })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data =>{
+        console.log(data)
+        //$emit is a vue method that allows you to emit an event
+        this.$emit('loggedIn', data)
+      })
     }
   }
 
