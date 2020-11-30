@@ -8,7 +8,7 @@
       <b-input value="username" maxlength="30" v-model='username'/>
     </b-field>
 
-    <b-field label="password"
+    <b-field label="Password"
              :type="{ 'is-danger': hasError }"
              :message="[
                 { 'Password is too short': hasError },
@@ -16,6 +16,7 @@
             ]">
       <b-input value="password" type="password" maxlength="30" v-model='password'></b-input>
     </b-field>
+    <button v-on:click="handleLogin">Login</button>
   </section>
 </template>
 
@@ -39,7 +40,18 @@ export default {
   },
   methods: {
     handleLogin: function(){
-      fetch('/http://localhost:3000/login')
+      fetch('http://localhost:3000/login', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: this.username,
+          password: this.password
+        })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
     }
   }
 
