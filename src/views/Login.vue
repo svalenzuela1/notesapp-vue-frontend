@@ -5,7 +5,7 @@
     <b-field label="Username"
              :type="{ 'is-danger': hasError }"
              :message="{ 'Username is not available': hasError }">
-      <b-input value="username" maxlength="30"></b-input>
+      <b-input value="username" maxlength="30" v-model='username'/>
     </b-field>
 
     <b-field label="password"
@@ -14,7 +14,7 @@
                 { 'Password is too short': hasError },
                 { 'Password must have at least 8 characters': hasError }
             ]">
-      <b-input value="password" type="password" maxlength="30"></b-input>
+      <b-input value="password" type="password" maxlength="30" v-model='password'></b-input>
     </b-field>
   </section>
 </template>
@@ -29,6 +29,17 @@ export default {
   data(){
     return{
       hasError: true
+    }
+  },
+  loginData: function(){
+    return {
+      username: '',
+      password: '',
+    }
+  },
+  methods: {
+    handleLogin: function(){
+      fetch('/http://localhost:3000/login')
     }
   }
 

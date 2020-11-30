@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
     </div>
-    <Header/>
+    <Header v-bind:URL="URL"/>
     <router-view/>
     <Footer/>
   </div>
@@ -21,7 +21,8 @@ export default {
   data: function(){
     return{
       loggedIn: false,
-      token: ""
+      token: "",
+      URL: 'http://localhost:3000/'
 
     }
   }
