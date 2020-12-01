@@ -1,11 +1,11 @@
 <template>
   <section>
     <b-checkbox v-model="hasError">Show errors</b-checkbox>
-
+<div class="login">
     <b-field label="Username"
              :type="{ 'is-danger': hasError }"
              :message="{ 'Username is not available': hasError }">
-      <b-input value="username" maxlength="30" v-model='username'/>
+      <b-input class="username" value="username" maxlength="30" v-model='username'/>
     </b-field>
 
     <b-field label="Password"
@@ -14,10 +14,50 @@
                 { 'Password is too short': hasError },
                 { 'Password must have at least 8 characters': hasError }
             ]">
-      <b-input value="password" type="password" maxlength="30" v-model='password'></b-input>
+      <b-input class="password" value="password" type="password" maxlength="30" v-model='password'></b-input>
     </b-field>
-    <button v-on:click="handleLogin">Login</button>
+
+<!--  <button v-on:click="handleLogin">Log In</button>-->
+  <b-button focused v-on:click="handleLogin">Log In</b-button>
+
+</div>
+
+    <b-collapse :open="false" aria-id="contentIdForA11y1">
+      <button
+          class="button is-primary"
+          slot="trigger"
+          aria-controls="contentIdForA11y1">Create Account</button>
+      <div class="notification">
+        <div class="content">
+          <!--        create account goes here-->
+
+          <b-field label="Username"
+                   :type="{ 'is-danger': hasError }"
+                   :message="{ 'Username is not available': hasError }">
+            <b-input value="johnsilver" maxlength="30"></b-input>
+          </b-field>
+
+          <b-field label="Password"
+                   :type="{ 'is-danger': hasError }"
+                   :message="[
+                { 'Password is too short': hasError },
+                { 'Password must have at least 8 characters': hasError }
+            ]">
+            <b-input value="123" type="password" maxlength="30"></b-input>
+          </b-field>
+        </div>
+      </div>
+    </b-collapse>
+<!--    <button v-on:click="handleLogin">Login</button>-->
+
+
+<!--Suppose to be for create account-->
+<!--    <button class="button block" @click="isActive = !isActive">Toggle</button>-->
+<!--    <b-notification v-model="isActive" aria-close-label="Close notification">-->
+<!--      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit-->
+<!--    </b-notification>-->
   </section>
+
 </template>
 
 
@@ -29,7 +69,7 @@ export default {
   name: 'Login',
   data(){
     return{
-      hasError: true
+      hasError: false
     }
   },
   loginData: function(){
@@ -61,3 +101,12 @@ export default {
 
 }
 </script>
+
+<style>
+.login{
+  width: 50%;
+  margin: 10px auto;
+  margin-bottom: 25px;
+}
+
+</style>

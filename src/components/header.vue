@@ -34,7 +34,9 @@
 <!--          <a class="button is-light">-->
 <!--            Log in-->
 <!--          </a>-->
-          <router-link to="/login" v-bind:URL="URL">Log in</router-link>
+          <router-link to="/login" v-bind:URL="URL"><button v-if="!loggedIn">Log in</button></router-link>
+          <button v-if="loggedIn"> Log Out</button>
+
         </div>
       </b-navbar-item>
     </template>
@@ -43,7 +45,9 @@
 
 <script>
 export default {
-name: "Header"
+name: "Header",
+  props: ['URL', 'loggedIn']
+
 }
 </script>
 

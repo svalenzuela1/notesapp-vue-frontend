@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
     </div>
-    <Header v-bind:URL="URL"/>
+    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn"/>
 <!-- router creates the event not the header -->
     <router-view @loggedIn="login($event)"/>
     <Footer/>
