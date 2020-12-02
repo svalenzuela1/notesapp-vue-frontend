@@ -129,8 +129,6 @@ export default {
             alert("Sign-Up Unsuccessful. Please Try Again. ")
           } else {
             alert("Thank You For Creating An Account. Please Log In.")
-            this.createPW = ""
-            this.createUN = ""
           }
       })
     }

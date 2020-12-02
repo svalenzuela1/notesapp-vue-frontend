@@ -28,14 +28,9 @@
     <template slot="end">
       <b-navbar-item tag="div">
         <div class="buttons">
-<!--          <a class="button is-primary">-->
-<!--            <strong>Sign up</strong>-->
-<!--          </a>-->
-<!--          <a class="button is-light">-->
-<!--            Log in-->
-<!--          </a>-->
+
           <router-link to="/login" v-bind:URL="URL"><b-button type="is-primary is-light" v-if="!loggedIn">Log In</b-button></router-link>
-<!--          <button v-if="loggedIn" @click="logout"> Log Out</button>-->
+
           <b-button type="is-primary is-light" v-if="loggedIn" @click="logout">Log Out</b-button>
 
         </div>
