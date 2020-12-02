@@ -1,6 +1,6 @@
 <template>
   <section>
-    <b-checkbox v-model="hasError">Show errors</b-checkbox>
+<!--    <b-checkbox v-model="hasError">Show errors</b-checkbox>-->
 <div class="login">
     <b-field label="Username"
              :type="{ 'is-danger': hasError }"
@@ -11,8 +11,8 @@
     <b-field label="Password"
              :type="{ 'is-danger': hasError }"
              :message="[
-                { 'Password is too short': hasError },
-                { 'Password must have at least 8 characters': hasError }
+                { 'Invalid Password': hasError },
+
             ]">
       <b-input class="password" value="password" type="password" maxlength="30" v-model='password'></b-input>
     </b-field>
@@ -32,19 +32,18 @@
           <!--        create account goes here-->
 
           <b-field label="Username"
-                   :type="{ 'is-danger': hasError }"
-                   :message="{ 'Username is not available': hasError }">
-            <b-input value="johnsilver" maxlength="30"></b-input>
+                   type="is-success"
+                   >
+            <b-input maxlength="30"></b-input>
           </b-field>
 
           <b-field label="Password"
-                   :type="{ 'is-danger': hasError }"
-                   :message="[
-                { 'Password is too short': hasError },
-                { 'Password must have at least 8 characters': hasError }
-            ]">
-            <b-input value="123" type="password" maxlength="30"></b-input>
+                   type="is-warning"
+                   >
+            <b-input type="password" maxlength="30"></b-input>
           </b-field>
+
+<!--          create account ends here-->
         </div>
       </div>
     </b-collapse>
@@ -95,10 +94,12 @@ export default {
       .then(data =>{
         console.log(data)
 
+        //this will not allow users that do not exist to log in
         if(data.error){
-          alert("invalid credentials")
+          this.hasError = true
+          alert("Invalid Credentials")
         } else {
-          //$emit is a vue method that allows you to emit an event
+          //$emit is a vue method that allows the event to get sent down the router
           this.$emit('loggedIn', data)
         }
       })
@@ -109,7 +110,7 @@ export default {
 </script>
 
 <style>
-.login{
+.login, .content{
   width: 50%;
   margin: 10px auto;
   margin-bottom: 25px;
