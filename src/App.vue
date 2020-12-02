@@ -32,10 +32,13 @@ export default {
       this.token = event
       //suppose to switch pages
       this.$router.push('/about')
+
     },
     logout: function(){
       this.loggedIn = false
       this.token = ""
+
+      this.$router.push('/login')
     }
   }
 
