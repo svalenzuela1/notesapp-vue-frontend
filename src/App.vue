@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
     </div>
-    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn"/>
+    <Header v-bind:URL="URL" v-bind:loggedIn="loggedIn" @logout="logout"/>
 <!-- router creates the event not the header -->
     <router-view @loggedIn="login($event)"/>
     <Footer/>
@@ -32,6 +32,10 @@ export default {
       this.token = event
       //suppose to switch pages
       this.$router.push('/')
+    },
+    logout: function(){
+      this.loggedIn = false
+      this.token = ""
     }
   }
 

@@ -35,7 +35,7 @@
 <!--            Log in-->
 <!--          </a>-->
           <router-link to="/login" v-bind:URL="URL"><button v-if="!loggedIn">Log in</button></router-link>
-          <button v-if="loggedIn"> Log Out</button>
+          <button v-if="loggedIn" @click="logout"> Log Out</button>
 
         </div>
       </b-navbar-item>
@@ -46,7 +46,12 @@
 <script>
 export default {
 name: "Header",
-  props: ['URL', 'loggedIn']
+  props: ['URL', 'loggedIn'],
+  methods: {
+  logout: function(){
+    this.$emit('logout')
+  }
+  }
 
 }
 </script>

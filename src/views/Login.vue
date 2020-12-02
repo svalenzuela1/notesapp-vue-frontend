@@ -21,7 +21,7 @@
   <b-button focused v-on:click="handleLogin">Log In</b-button>
 
 </div>
-
+<div class="createAccount">
     <b-collapse :open="false" aria-id="contentIdForA11y1">
       <button
           class="button is-primary"
@@ -48,6 +48,7 @@
         </div>
       </div>
     </b-collapse>
+</div>
 <!--    <button v-on:click="handleLogin">Login</button>-->
 
 
@@ -109,4 +110,7 @@ export default {
   margin-bottom: 25px;
 }
 
+.createAccount{
+  margin-bottom: 50px;
+}
 </style>
