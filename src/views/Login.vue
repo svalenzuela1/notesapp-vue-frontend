@@ -26,7 +26,7 @@
       <button
           class="button is-primary"
           slot="trigger"
-          aria-controls="contentIdForA11y1">Create Account</button>
+          aria-controls="contentIdForA11y1">Create An Account</button>
       <div class="notification">
         <div class="content">
           <!--        create account goes here-->
@@ -34,14 +34,15 @@
           <b-field label="Username"
                    type="is-success"
                    >
-            <b-input maxlength="30"></b-input>
+            <b-input maxlength="30" v-model="createUN"></b-input>
           </b-field>
 
           <b-field label="Password"
                    type="is-warning"
                    >
-            <b-input type="password" maxlength="30"></b-input>
+            <b-input type="password" maxlength="30" v-model="createPW"></b-input>
           </b-field>
+          <b-button focused v-on:click="handleSignup">Create Account</b-button>
 
 <!--          create account ends here-->
         </div>
@@ -78,6 +79,12 @@ export default {
       password: '',
     }
   },
+  signupData: function(){
+    return {
+      createUN: '',
+      createPW: ''
+    }
+  },
   methods: {
     handleLogin: function(){
       fetch('http://localhost:3000/login', {
@@ -103,6 +110,29 @@ export default {
           this.$emit('loggedIn', data)
         }
       })
+    },
+    handleSignup: function(){
+
+      fetch('http://localhost:3000/users', {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: this.createUN,
+          password: this.createPW
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+          if(data.error){
+            alert("Sign-Up Unsuccessful. Please Try Again. ")
+          } else {
+            alert("Thank You For Creating An Account. Please Log In.")
+            this.createPW = ""
+            this.createUN = ""
+          }
+      })
     }
   }
 
@@ -119,4 +149,6 @@ export default {
 .createAccount{
   margin-bottom: 50px;
 }
+
+
 </style>
