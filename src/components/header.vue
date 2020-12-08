@@ -15,8 +15,11 @@
 <!--      <b-navbar-item href="#">-->
 <!--       -->
 <!--      </b-navbar-item>-->
-      <b-navbar-dropdown label="Info">
+      <b-navbar-dropdown label="Check">
+        <b-navbar-item href="#">
         <router-link to="/notes">Notes</router-link>
+        </b-navbar-item>
+
         <b-navbar-item href="#">
           <router-link to="/calendar">Calendar</router-link>
         </b-navbar-item>

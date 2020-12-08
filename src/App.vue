@@ -31,7 +31,7 @@ export default {
       this.loggedIn = true
       this.token = event
       //suppose to switch pages
-      this.$router.push('/about')
+      this.$router.push('/notes')
 
     },
     logout: function(){
