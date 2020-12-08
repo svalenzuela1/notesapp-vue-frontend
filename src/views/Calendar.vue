@@ -1,9 +1,9 @@
 <template>
-  <h1>Calendar</h1>
+  <h1>It was the Capital V</h1>
 </template>
 
 <script>
 export default{
-  name: 'Calendar'
+  name: 'Calendar',
 }
 </script>

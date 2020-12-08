@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Notes from '../views/Notes.vue'
+import Calendar from "../views/Calendar.vue";
 
 Vue.use(VueRouter)
 
@@ -27,12 +28,12 @@ const routes = [
     component: Notes
         //() => import(/* webpackChunkName: "about" */ '../views/Notes.vue')
   }
-  // ,
-  // {
-  //   path: '/calendar',
-  //   name: 'Calendar',
-  //   component: Calendar
-  // }
+  ,
+  {
+    path: '/calendar',
+    name: 'Calendar',
+    component: Calendar
+  }
 ]
 
 const router = new VueRouter({

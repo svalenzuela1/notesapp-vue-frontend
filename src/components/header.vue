@@ -18,7 +18,7 @@
       <b-navbar-dropdown label="Info">
         <router-link to="/notes">Notes</router-link>
         <b-navbar-item href="#">
-          About
+          <router-link to="/calendar">Calendar</router-link>
         </b-navbar-item>
         <b-navbar-item href="#">
           Contact
