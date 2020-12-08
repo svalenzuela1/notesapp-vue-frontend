@@ -12,10 +12,11 @@
       <b-navbar-item href="#">
         <router-link to="/">Home</router-link>
       </b-navbar-item>
-      <b-navbar-item href="#">
-        <router-link to="/about">About</router-link>
-      </b-navbar-item>
+<!--      <b-navbar-item href="#">-->
+<!--       -->
+<!--      </b-navbar-item>-->
       <b-navbar-dropdown label="Info">
+        <router-link to="/notes">Notes</router-link>
         <b-navbar-item href="#">
           About
         </b-navbar-item>
