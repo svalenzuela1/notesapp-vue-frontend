@@ -1,9 +1,31 @@
 <template>
   <div class="about">
     <ul>
-      <li v-for="note of notes" v-bind:key="note.id">{{note.message}}</li>
+<!--      <li v-for="note of notes" v-bind:key="note.id">{{note.message}}</li>-->
+      <b-message class="postedNotes" v-for="note of notes" v-bind:key="note.id" title="Notes" type="is-dark" has-icon icon="account" aria-close-label="Close message">
+        {{note.message}}
+      </b-message>
     </ul>
+
+    <div class="field is-grouped" id="saveAndDelete">
+      <p class="control">
+        <button class="button is-link">
+          Save Post
+        </button>
+      </p>
+      <p class="control">
+        <button class="button">
+          Cancel
+        </button>
+      </p>
+      <p class="control">
+        <button class="button is-danger">
+          Delete Post
+        </button>
+      </p>
+    </div>
   </div>
+
 </template>
 
 
@@ -17,8 +39,6 @@ export default {
   }
 },
   created: function(){
-    //const token = this.$route.query
-    console.log(this.$route.query)
 
     fetch('http://localhost:3000/notes', {
       method: 'get',
@@ -32,20 +52,21 @@ export default {
     })
   },
   methods: {
-    getNote: function(){
 
-      fetch(`${this.URL}/notes`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${this.token}`
-        }
-        .then(response => response.JSON())
-        .then(data => {
-          console.log("working", data)
-        })
-      })
-    }
   }
 }
 </script>
+
+<style>
+.postedNotes{
+  width: 50%;
+  margin: 20px auto;
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+#saveAndDelete{
+  display: flex;
+  justify-content: center;
+}
+</style>
