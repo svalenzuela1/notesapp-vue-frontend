@@ -9,7 +9,6 @@
 <script>
 export default {
   name: "Notes",
-  props: true,
   token: null,
   URL: 'http://localhost:3000',
   data: function(){
