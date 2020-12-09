@@ -1,7 +1,8 @@
 <template>
   <div class="about">
-    <h1>Hello</h1>
-    <button v-on:click="getNote">Test</button>
+    <ul>
+      <li v-for="note of notes" v-bind:key="note.id">{{note.message}}</li>
+    </ul>
   </div>
 </template>
 
@@ -9,15 +10,27 @@
 <script>
 export default {
   name: "Notes",
-  token: null,
-  URL: 'http://localhost:3000',
   data: function(){
   return {
     notes: [],
     message: ''
   }
-}
-,
+},
+  created: function(){
+    //const token = this.$route.query
+    console.log(this.$route.query)
+
+    fetch('http://localhost:3000/notes', {
+      method: 'get',
+      headers: {
+        Authorization: `bearer ${this.$route.query.token.token}`
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.notes = data
+    })
+  },
   methods: {
     getNote: function(){
 

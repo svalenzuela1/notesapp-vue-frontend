@@ -87,7 +87,9 @@ export default {
   },
   methods: {
     handleLogin: function(){
-      fetch(this.$route.query.URL + '/login', {
+     // fetch(this.$route.query.URL + '/login', {
+      fetch('http://localhost:3000' + '/login', {
+
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -99,7 +101,7 @@ export default {
       })
       .then(response => response.json())
       .then(data =>{
-        console.log(data)
+        //console.log(data)
 
         //this will not allow users that do not exist to log in
         if(data.error){
