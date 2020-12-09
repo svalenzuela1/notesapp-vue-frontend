@@ -33,7 +33,7 @@
       <b-navbar-item tag="div">
         <div class="buttons">
 
-          <router-link to="/login" v-bind:URL="URL"><b-button type="is-primary is-light" v-if="!loggedIn">Log In</b-button></router-link>
+          <router-link :to="{ name: 'Login', query: {URL: this.URL}}" v-bind:URL="URL"><b-button type="is-primary is-light" v-if="!loggedIn">Log In</b-button></router-link>
 
           <b-button type="is-primary is-light" v-if="loggedIn" @click="logout">Log Out</b-button>
 
