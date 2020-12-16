@@ -15,6 +15,7 @@
 
             ]">
       <b-input class="password" value="password" type="password" maxlength="30" v-model='password'></b-input>
+
     </b-field>
 
 <!--  <button v-on:click="handleLogin">Log In</button>-->
@@ -130,7 +131,7 @@ export default {
           if(data.error){
             alert("Sign-Up Unsuccessful. Please Try Again. ")
           } else {
-            alert("Thank You For Creating An Account. Please Log In.")
+            alert("Thank You For Creating An Account.")
           }
       })
     }
