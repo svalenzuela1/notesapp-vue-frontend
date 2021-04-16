@@ -36,6 +36,7 @@
 <script>
 export default {
   name: "Notes",
+  props: [URL],
   data: function(){
   return {
     notes: [],
@@ -47,7 +48,7 @@ export default {
   },
   methods: {
     getNotes: function(){
-      fetch('http://localhost:3000/notes', {
+      fetch(`${this.URL}/notes`, {
         method: 'get',
         headers: {
           Authorization: `bearer ${this.$route.query.token.token}`

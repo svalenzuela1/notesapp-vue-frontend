@@ -71,25 +71,30 @@ export default {
   name: 'Login',
   data(){
     return{
-      hasError: false
-    }
-  },
-  loginData: function(){
-    return {
+      hasError: false,
       username: '',
       password: '',
-    }
-  },
-  signupData: function(){
-    return {
       createUN: '',
-      createPW: ''
+      createPW: '',
+      URL: 'https://notesapp-rails.herokuapp.com',
     }
   },
+  // loginData: function(){
+  //   return {
+  //     username: '',
+  //     password: '',
+  //   }
+  // },
+  // signupData: function(){
+  //   return {
+  //     createUN: '',
+  //     createPW: ''
+  //   }
+  // },
   methods: {
     handleLogin: function(){
      // fetch(this.$route.query.URL + '/login', {
-      fetch('http://localhost:3000' + '/login', {
+      fetch(`${this.URL}/login`, {
 
         method: 'post',
         headers: {
@@ -116,7 +121,7 @@ export default {
     },
     handleSignup: function(){
 
-      fetch('http://localhost:3000/users', {
+      fetch(`${this.URL}/users`, {
         method: "post",
         headers: {
           "Content-Type": "application/json"
