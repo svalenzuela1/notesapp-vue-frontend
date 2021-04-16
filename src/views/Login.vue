@@ -79,18 +79,6 @@ export default {
       URL: 'https://notesapp-rails.herokuapp.com',
     }
   },
-  // loginData: function(){
-  //   return {
-  //     username: '',
-  //     password: '',
-  //   }
-  // },
-  // signupData: function(){
-  //   return {
-  //     createUN: '',
-  //     createPW: ''
-  //   }
-  // },
   methods: {
     handleLogin: function(){
      // fetch(this.$route.query.URL + '/login', {
@@ -114,6 +102,8 @@ export default {
           this.hasError = true
           alert("Invalid Credentials")
         } else {
+
+          console.log(data)
           //$emit is a vue method that allows the event to get sent down the router
           this.$emit('loggedIn', data)
         }
@@ -137,6 +127,7 @@ export default {
             alert("Sign-Up Unsuccessful. Please Try Again. ")
           } else {
             alert("Thank You For Creating An Account.")
+            console.log(data)
           }
       })
     }
