@@ -7,11 +7,20 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body>
+  <body class="entire-content">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+
+<style>
+    html{
+        background-image: url("https://images.unsplash.com/photo-1541422348463-9bc715520974?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZGFyayUyMG1vdW50YWlufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+</style>
 </html>

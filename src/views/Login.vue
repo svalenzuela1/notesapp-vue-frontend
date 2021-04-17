@@ -22,34 +22,34 @@
   <b-button focused v-on:click="handleLogin">Log In</b-button>
 
 </div>
-<div class="createAccount">
-    <b-collapse :open="false" aria-id="contentIdForA11y1">
-      <button
-          class="button is-primary"
-          slot="trigger"
-          aria-controls="contentIdForA11y1">Create An Account</button>
-      <div class="notification">
-        <div class="content">
-          <!--        create account goes here-->
+<!--<div class="createAccount">-->
+<!--    <b-collapse :open="false" aria-id="contentIdForA11y1">-->
+<!--      <button-->
+<!--          class="button is-primary"-->
+<!--          slot="trigger"-->
+<!--          aria-controls="contentIdForA11y1">Create An Account</button>-->
+<!--      <div class="notification">-->
+<!--        <div class="content">-->
+<!--          &lt;!&ndash;        create account goes here&ndash;&gt;-->
 
-          <b-field label="Username"
-                   type="is-success"
-                   >
-            <b-input maxlength="30" v-model="createUN"></b-input>
-          </b-field>
+<!--          <b-field label="Username"-->
+<!--                   type="is-success"-->
+<!--                   >-->
+<!--            <b-input maxlength="30" v-model="createUN"></b-input>-->
+<!--          </b-field>-->
 
-          <b-field label="Password"
-                   type="is-warning"
-                   >
-            <b-input type="password" maxlength="30" v-model="createPW"></b-input>
-          </b-field>
-          <b-button focused v-on:click="handleSignup">Create Account</b-button>
+<!--          <b-field label="Password"-->
+<!--                   type="is-warning"-->
+<!--                   >-->
+<!--            <b-input type="password" maxlength="30" v-model="createPW"></b-input>-->
+<!--          </b-field>-->
+<!--          <b-button focused v-on:click="handleSignup">Create Account</b-button>-->
 
-<!--          create account ends here-->
-        </div>
-      </div>
-    </b-collapse>
-</div>
+<!--&lt;!&ndash;          create account ends here&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </b-collapse>-->
+<!--</div>-->
 <!--    <button v-on:click="handleLogin">Login</button>-->
 
 
