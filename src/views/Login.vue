@@ -1,19 +1,12 @@
 <template>
   <section>
-<!--    <b-checkbox v-model="hasError">Show errors</b-checkbox>-->
+
 <div class="login">
-    <b-field label="Username"
-             :type="{ 'is-danger': hasError }"
-             :message="{ 'Username is not available': hasError }">
+    <b-field label="Username">
       <b-input class="username" value="username" maxlength="30" v-model='username'/>
     </b-field>
 
-    <b-field label="Password"
-             :type="{ 'is-danger': hasError }"
-             :message="[
-                { 'Invalid Password': hasError },
-
-            ]">
+    <b-field label="Password">
       <b-input class="password" value="password" type="password" maxlength="30" v-model='password'></b-input>
 
     </b-field>
@@ -71,7 +64,6 @@ export default {
   name: 'Login',
   data(){
     return{
-      hasError: false,
       username: '',
       password: '',
       createUN: '',
@@ -139,8 +131,10 @@ export default {
 <style>
 .login, .content{
   width: 50%;
+  padding-top: 80px;
   margin: 10px auto;
   margin-bottom: 25px;
+  /*background: rgba(black, 0.5);*/
 }
 
 .createAccount{

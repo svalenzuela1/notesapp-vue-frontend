@@ -18,7 +18,7 @@ export default {
   name: 'App',
   components: {
     Header,
-    // Footer
+    //Footer
   },
   data: function(){
     return{
@@ -36,10 +36,12 @@ export default {
 
     },
     logout: function(){
+
       this.loggedIn = false
       this.token = ""
 
       this.$router.push('/login')
+
     }
   }
 
