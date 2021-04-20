@@ -6,7 +6,7 @@
 
 <div class="login">
 
-  <b-tabs v-model="activeTab" position="is-centered" class="block">
+  <b-tabs v-model="activeTab" position="is-centered" class="block" size="is-medium" type="is-boxed">
 <!--LOGIN-->
     <b-tab-item label="Login">
     <b-field label="Username">
@@ -25,11 +25,11 @@
     <!--CREATE ACCOUNT-->
     <b-tab-item label="Sign Up">
                 <b-field label="Create Username">
-                  <b-input maxlength="30" v-model="createUN"></b-input>
+                  <b-input maxlength="30" v-model="createUN" required></b-input>
                 </b-field>
 
                 <b-field label="Create Password">
-                  <b-input type="password" maxlength="30" v-model="createPW"></b-input>
+                  <b-input type="password" maxlength="30" minlength="8" v-model="createPW" required password-reveal></b-input>
                 </b-field>
                 <b-button focused v-on:click="handleSignup">Create Account</b-button>
     </b-tab-item>
@@ -83,7 +83,18 @@ export default {
         //this will not allow users that do not exist to log in
         if(data.error){
           this.hasError = true
-          alert("Invalid Credentials")
+
+          //notification of error
+          this.$buefy.notification.open({
+            duration: 5000,
+            message: `Invalid Credentials. Account Does Not Exist.`,
+            position: 'is-bottom-right',
+            type: 'is-danger',
+            hasIcon: true
+          })
+          // notif.$on('close', () => {
+          //   this.$buefy.notification.open('Please Try Again!')
+          // })
         } else {
 
           console.log(data)
@@ -107,9 +118,18 @@ export default {
       .then(response => response.json())
       .then(data => {
           if(data.error){
-            alert("Sign-Up Unsuccessful. Please Try Again. ")
+            this.$buefy.notification.open({
+              duration: 3000,
+              message: `Error When Creating Account. Please Try Again`,
+              position: 'is-bottom-right',
+              type: 'is-danger',
+              hasIcon: true
+            })
           } else {
-            alert("Thank You For Creating An Account.")
+            this.$buefy.notification.open({
+              message: 'Thank You For Signing Up! Please Log In!',
+              type: 'is-success'
+            })
             console.log(data)
           }
       })
