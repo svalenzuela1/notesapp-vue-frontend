@@ -3,11 +3,11 @@
 
 <div class="login">
     <b-field label="Username">
-      <b-input class="username" value="username" maxlength="30" v-model='username'/>
+      <b-input class="username" value="username" maxlength="30" v-model='username' required/>
     </b-field>
 
     <b-field label="Password">
-      <b-input class="password" value="password" type="password" maxlength="30" v-model='password'></b-input>
+      <b-input class="password" value="password" type="password" minlength="8" maxlength="30" v-model='password' required password-reveal/>
 
     </b-field>
 
@@ -131,12 +131,11 @@ export default {
 <style>
 .login, .content{
   width: 50%;
-  /*padding-top: 80px;*/
   padding: 80px 40px 80px 40px;
   margin: 10px auto;
   margin-bottom: 25px;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0.4;
+  background: rgba(0, 3, 0, 0.5);
+  /*opacity: 0.4;*/
   border-radius: 5px;
 }
 
@@ -144,5 +143,21 @@ export default {
   margin-bottom: 50px;
 }
 
+/*inputs*/
+.username, .password{
+  /*background-color: inherit;*/
+  background: transparent;
+  border: none;
+}
+
+input[type='text'], input[type='password']{
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid white;
+  color: white;
+}
+/*inputs*/
 
 </style>
