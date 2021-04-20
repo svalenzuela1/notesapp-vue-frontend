@@ -131,10 +131,13 @@ export default {
 <style>
 .login, .content{
   width: 50%;
-  padding-top: 80px;
+  /*padding-top: 80px;*/
+  padding: 80px 40px 80px 40px;
   margin: 10px auto;
   margin-bottom: 25px;
-  /*background: rgba(black, 0.5);*/
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.4;
+  border-radius: 5px;
 }
 
 .createAccount{
