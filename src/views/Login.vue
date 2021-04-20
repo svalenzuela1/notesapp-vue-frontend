@@ -1,7 +1,14 @@
 <template>
   <section>
+<div>
+<!--    <b-tabs v-model="activeTab">-->
+<!--      <b-tab-item label="Login">-->
 
 <div class="login">
+
+  <b-tabs v-model="activeTab" position="is-centered" class="block">
+<!--LOGIN-->
+    <b-tab-item label="Login">
     <b-field label="Username">
       <b-input class="username" value="username" maxlength="30" v-model='username' required/>
     </b-field>
@@ -11,46 +18,29 @@
 
     </b-field>
 
-<!--  <button v-on:click="handleLogin">Log In</button>-->
   <b-button focused v-on:click="handleLogin">Log In</b-button>
+    </b-tab-item>
+    <!--LOGIN-->
+
+    <!--CREATE ACCOUNT-->
+    <b-tab-item label="Sign Up">
+                <b-field label="Create Username">
+                  <b-input maxlength="30" v-model="createUN"></b-input>
+                </b-field>
+
+                <b-field label="Create Password">
+                  <b-input type="password" maxlength="30" v-model="createPW"></b-input>
+                </b-field>
+                <b-button focused v-on:click="handleSignup">Create Account</b-button>
+    </b-tab-item>
+    <!--CREATE ACCOUNT-->
+
+  </b-tabs>
+
 
 </div>
-<!--<div class="createAccount">-->
-<!--    <b-collapse :open="false" aria-id="contentIdForA11y1">-->
-<!--      <button-->
-<!--          class="button is-primary"-->
-<!--          slot="trigger"-->
-<!--          aria-controls="contentIdForA11y1">Create An Account</button>-->
-<!--      <div class="notification">-->
-<!--        <div class="content">-->
-<!--          &lt;!&ndash;        create account goes here&ndash;&gt;-->
 
-<!--          <b-field label="Username"-->
-<!--                   type="is-success"-->
-<!--                   >-->
-<!--            <b-input maxlength="30" v-model="createUN"></b-input>-->
-<!--          </b-field>-->
-
-<!--          <b-field label="Password"-->
-<!--                   type="is-warning"-->
-<!--                   >-->
-<!--            <b-input type="password" maxlength="30" v-model="createPW"></b-input>-->
-<!--          </b-field>-->
-<!--          <b-button focused v-on:click="handleSignup">Create Account</b-button>-->
-
-<!--&lt;!&ndash;          create account ends here&ndash;&gt;-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </b-collapse>-->
-<!--</div>-->
-<!--    <button v-on:click="handleLogin">Login</button>-->
-
-
-<!--Suppose to be for create account-->
-<!--    <button class="button block" @click="isActive = !isActive">Toggle</button>-->
-<!--    <b-notification v-model="isActive" aria-close-label="Close notification">-->
-<!--      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id fermentum quam. Proin sagittis, nibh id hendrerit imperdiet, elit sapien laoreet elit-->
-<!--    </b-notification>-->
+</div>
   </section>
 
 </template>
@@ -69,6 +59,7 @@ export default {
       createUN: '',
       createPW: '',
       URL: 'https://notesapp-rails.herokuapp.com',
+      activeTab: 0
     }
   },
   methods: {
@@ -129,18 +120,13 @@ export default {
 </script>
 
 <style>
-.login, .content{
+.login{
   width: 50%;
   padding: 80px 40px 80px 40px;
   margin: 10px auto;
   margin-bottom: 25px;
   background: rgba(0, 3, 0, 0.5);
-  /*opacity: 0.4;*/
   border-radius: 5px;
-}
-
-.createAccount{
-  margin-bottom: 50px;
 }
 
 /*inputs*/
