@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     getNotes: function(){
-      fetch(`${this.URL}/notes`, {
+      fetch(`${URL}/notes`, {
         method: 'get',
         headers: {
           Authorization: `bearer ${this.$route.query.token.token}`
@@ -60,7 +60,7 @@ export default {
           })
     },
     newNote: function(){
-      fetch('http://localhost:3000/notes', {
+      fetch(`${URL}/notes`, {
         method: 'post',
         headers: {
           Authorization: `bearer ${this.$route.query.token.token}`,
@@ -77,7 +77,7 @@ export default {
     deleteNote: function(event){
       const id = event.target.id
 
-      fetch(`http://localhost:3000/notes/${id}`, {
+      fetch(`${URL}/notes/${id}`, {
         method: "delete",
         headers: {
           authorization: `Bearer ${this.$route.query.token.token}`,
